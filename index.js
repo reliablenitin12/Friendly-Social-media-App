@@ -3,6 +3,7 @@ const app=express();
 const port=8000;
 //Library for using Express Layouts
 const expressLayouts=require('express-ejs-layouts');
+const db=require('./config/mongoose');
 //telling app to use static folder which includes static files such as s images,logo etc
 app.use(express.static('./assets'));
 //telling app to use express Layouts
