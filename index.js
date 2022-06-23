@@ -1,6 +1,10 @@
 const express=require('express');
 const app=express();
 const port=8000;
+//Library for using Express Layouts
+const expressLayouts=require('express-ejs-layouts');
+//telling app to use express Layouts
+app.use(expressLayouts);
 
 //use express router via middleware
 app.use('/',require('./routes'));
