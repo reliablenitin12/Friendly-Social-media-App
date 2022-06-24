@@ -13,6 +13,9 @@ const session=require('express-session');
 const passport=require('passport');
 const passportLocal=require('./config/passport-local-strategy');
 
+//for persistent storage of cookie
+const MongoStore=require('connect-mongo');
+
 //body parser to read form data
 app.use(express.urlencoded());
 
@@ -34,6 +37,7 @@ app.set('layout extractScripts',true);
 app.set('view engine','ejs');
 app.set('views','./views');
 
+//mogo store is used to store the session cookie in the db
 //we will use middleware which takes session cookie and encrypt it
 app.use(session({
    name:'Friendly',
@@ -42,12 +46,25 @@ app.use(session({
    resave:false,
    cookie:{
      maxAge:(1000*60*100)
-   }
+   },
+   store:MongoStore.create(
+    {
+        mongooseConnection:db,
+        autoRemove:'disabled',
+        mongoUrl: 'mongodb://localhost/friendly_development'
+    },
+    function(err)
+    {
+        console.log(err || 'connect-mongodb setup ok');
+    }
+    )
 }));
 
 //using passport and session
 app.use(passport.initialize());
 app.use(passport.session());
+
+app.use(passport.setAuthenticatedUser);
 
 //use express router via middleware
 app.use('/',require('./routes'));
