@@ -1,1 +1,1 @@
-# sociout-Social-media-App
+# Friendly-Social-media-App
