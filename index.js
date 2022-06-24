@@ -16,6 +16,18 @@ const passportLocal=require('./config/passport-local-strategy');
 //for persistent storage of cookie
 const MongoStore=require('connect-mongo');
 
+//for using sass
+const sassMiddleware=require('node-sass-middleware');
+
+//telling app to use sassMiddleware
+app.use(sassMiddleware({
+   src:'./assets/scss',
+   dest:'./assets/css',
+   debug:true,
+   outputStyle:'extended',
+   prefix:'/css'
+
+}));
 //body parser to read form data
 app.use(express.urlencoded());
 
