@@ -1,16 +1,13 @@
 {
-  "name": "sociout",
+  "name": "friendly",
   "version": "1.0.0",
-  "description": "social media application",
+  "description": "This is My Social Media Website",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [
-    "social"
-  ],
-  "author": "Nitin_Kumar",
+  "author": "Nitin Kumar",
   "license": "ISC",
   "dependencies": {
     "connect-mongo": "^4.6.0",
@@ -19,9 +16,8 @@
     "express": "^4.18.1",
     "express-ejs-layouts": "^2.5.1",
     "express-session": "^1.17.3",
-    "mongoose": "^6.3.5",
+    "mongoose": "^6.4.0",
     "node-sass-middleware": "^1.0.1",
-    "nodemon": "^2.0.16",
     "passport": "^0.6.0",
     "passport-local": "^1.0.0"
   }
